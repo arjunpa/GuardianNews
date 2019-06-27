@@ -9,12 +9,19 @@
 import Foundation
 
 protocol ArticleListViewModelInterface {
+    var viewDelegate: ArticleListViewDelegate? { get set }
     var articleCount: Int { get }
     func article(at index: Int) -> ArticleViewModel
-    func fetchArticles(completion: @escaping (Result<[ArticleViewModel], Error>) -> Void)
+    func fetchArticles()
+}
+
+protocol ArticleListViewDelegate: class {
+    func updateView()
 }
 
 class ArticleListViewModel: ArticleListViewModelInterface {
+    
+    weak var viewDelegate: ArticleListViewDelegate?
     
     var articleCount: Int {
         return self.articleViewModels.count
@@ -22,9 +29,9 @@ class ArticleListViewModel: ArticleListViewModelInterface {
     
     private lazy var articleViewModels: [ArticleViewModel] = []
     
-    private let articleRepository: ArticleRepository
+    private let articleRepository: ArticleListDataProviderInterface
     
-    init(articleRepository: ArticleRepository) {
+    init(articleRepository: ArticleListDataProviderInterface) {
         self.articleRepository = articleRepository
     }
     
@@ -32,16 +39,16 @@ class ArticleListViewModel: ArticleListViewModelInterface {
         return self.articleViewModels[index]
     }
     
-    func fetchArticles(completion: @escaping (Result<[ArticleViewModel], Error>) -> Void) {
+    func fetchArticles() {
         
         self.articleRepository.fetchArticles { result in
             switch result {
             case .success(let articles):
                 self.articleViewModels = articles.map({ ArticleViewModel(article: $0) })
-                completion(.success(self.articleViewModels))
-            case .failure(let error):
-                completion(.failure(error))
+            case .failure:
+                break
             }
+            self.viewDelegate?.updateView()
         }
     }
 }

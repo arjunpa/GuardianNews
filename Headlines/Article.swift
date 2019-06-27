@@ -37,10 +37,15 @@ class Article: Object {
     @objc dynamic var headline = ""
     @objc dynamic var body = ""
     @objc dynamic var published: Date?
+    @objc dynamic var id: String?
     @objc private dynamic var rawImageURL: String?
     var imageURL: URL? {
         guard let rawImageURL = rawImageURL else { return nil }
         return URL(string: rawImageURL)
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id"
     }
     
     static var all: [Article] {
@@ -55,6 +60,8 @@ class Article: Object {
         
         headline = dictionary["webTitle"] as? String ?? ""
         
+        id = dictionary["id"] as? String
+        
         if let publicationDate = dictionary["webPublicationDate"] as? String {
             published = NSDate(iso8601String: publicationDate) as Date?
         }
@@ -62,24 +69,5 @@ class Article: Object {
         guard let fields = dictionary["fields"] as? [String: String] else { return }
         body = fields["body"]?.strippingTags ?? ""
         rawImageURL = fields["main"]?.url?.absoluteString
-    }
-    
-    static func fetchArticles(completion: @escaping (([Article]?, Error?) -> Void)) {
-        let url = "http://content.guardianapis.com/search?q=fintech&show-fields=main,body&api-key=\(APIKey)"
-        Alamofire.request(url, encoding: JSONEncoding.default).responseJSON { response in
-            guard let json = response.result.value as? [String: Any], let data = json["response"] as? [String: Any], let results = data["results"] as? [[String: Any]] else {
-                completion(nil, response.error)
-                return
-            }
-            
-            let articles = results.compactMap { Article(dictionary: $0) }
-            let realm = try! Realm()
-            _ = try? realm.write {
-                realm.delete(Article.all)
-                realm.add(articles)
-            }
-            
-            completion(articles, nil)
-        }
     }
 }

@@ -18,11 +18,11 @@
 		AFC312991EC1FE4A00105E93 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */; };
 		C26778C122C25F0D00DD7707 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778C022C25F0D00DD7707 /* Coordinator.swift */; };
 		C26778C322C2706800DD7707 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778C222C2706800DD7707 /* AppCoordinator.swift */; };
-		C26778C522C2960800DD7707 /* ArticleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778C422C2960800DD7707 /* ArticleCoordinator.swift */; };
+		C26778C522C2960800DD7707 /* ArticleListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778C422C2960800DD7707 /* ArticleListCoordinator.swift */; };
 		C26778C922C2B29B00DD7707 /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778C822C2B29B00DD7707 /* RemoteDataManager.swift */; };
 		C26778CB22C3A40100DD7707 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CA22C3A40100DD7707 /* LocalDataManager.swift */; };
-		C26778CD22C3AAA100DD7707 /* ArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CC22C3AAA100DD7707 /* ArticleRepository.swift */; };
-		C26778CF22C3AE1100DD7707 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CE22C3AE1100DD7707 /* ArticleService.swift */; };
+		C26778CD22C3AAA100DD7707 /* ArticleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CC22C3AAA100DD7707 /* ArticleListDataProvider.swift */; };
+		C26778CF22C3AE1100DD7707 /* ArticleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CE22C3AE1100DD7707 /* ArticleListService.swift */; };
 		C26778D222C3D68400DD7707 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778D122C3D68400DD7707 /* ArticleListViewModel.swift */; };
 		C26778D422C3DFCD00DD7707 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778D322C3DFCD00DD7707 /* ArticleViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -43,11 +43,11 @@
 		AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		C26778C022C25F0D00DD7707 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C26778C222C2706800DD7707 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		C26778C422C2960800DD7707 /* ArticleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCoordinator.swift; sourceTree = "<group>"; };
+		C26778C422C2960800DD7707 /* ArticleListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListCoordinator.swift; sourceTree = "<group>"; };
 		C26778C822C2B29B00DD7707 /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
 		C26778CA22C3A40100DD7707 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
-		C26778CC22C3AAA100DD7707 /* ArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRepository.swift; sourceTree = "<group>"; };
-		C26778CE22C3AE1100DD7707 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
+		C26778CC22C3AAA100DD7707 /* ArticleListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListDataProvider.swift; sourceTree = "<group>"; };
+		C26778CE22C3AE1100DD7707 /* ArticleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListService.swift; sourceTree = "<group>"; };
 		C26778D122C3D68400DD7707 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		C26778D322C3DFCD00DD7707 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +124,7 @@
 			children = (
 				C26778C022C25F0D00DD7707 /* Coordinator.swift */,
 				C26778C222C2706800DD7707 /* AppCoordinator.swift */,
-				C26778C422C2960800DD7707 /* ArticleCoordinator.swift */,
+				C26778C422C2960800DD7707 /* ArticleListCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 		C26778C622C2B07B00DD7707 /* Data Providers */ = {
 			isa = PBXGroup;
 			children = (
-				C26778CC22C3AAA100DD7707 /* ArticleRepository.swift */,
+				C26778CC22C3AAA100DD7707 /* ArticleListDataProvider.swift */,
 			);
 			path = "Data Providers";
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				C26778C822C2B29B00DD7707 /* RemoteDataManager.swift */,
-				C26778CE22C3AE1100DD7707 /* ArticleService.swift */,
+				C26778CE22C3AE1100DD7707 /* ArticleListService.swift */,
 				C26778CA22C3A40100DD7707 /* LocalDataManager.swift */,
 			);
 			path = "Data Managers";
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C26778C522C2960800DD7707 /* ArticleCoordinator.swift in Sources */,
+				C26778C522C2960800DD7707 /* ArticleListCoordinator.swift in Sources */,
 				C26778C322C2706800DD7707 /* AppCoordinator.swift in Sources */,
 				C26778D422C3DFCD00DD7707 /* ArticleViewModel.swift in Sources */,
 				C26778CB22C3A40100DD7707 /* LocalDataManager.swift in Sources */,
@@ -305,9 +305,9 @@
 				AFC312831EC1E45A00105E93 /* ArticleViewController.swift in Sources */,
 				C26778C122C25F0D00DD7707 /* Coordinator.swift in Sources */,
 				AFC312811EC1E45A00105E93 /* AppDelegate.swift in Sources */,
-				C26778CD22C3AAA100DD7707 /* ArticleRepository.swift in Sources */,
+				C26778CD22C3AAA100DD7707 /* ArticleListDataProvider.swift in Sources */,
 				C26778D222C3D68400DD7707 /* ArticleListViewModel.swift in Sources */,
-				C26778CF22C3AE1100DD7707 /* ArticleService.swift in Sources */,
+				C26778CF22C3AE1100DD7707 /* ArticleListService.swift in Sources */,
 				AFC312971EC1E80800105E93 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

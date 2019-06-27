@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ArticleService {
+class ArticleListService {
     
     private static let APIKey = "enj8pstqu5yat6yesfsdmd39"
     
