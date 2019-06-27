@@ -13,7 +13,7 @@ protocol AppCoordinator: Coordinator {
     var navigationController: UINavigationController? { get }
 }
 
-class MainAppCoordinator: AppCoordinator {
+final class MainAppCoordinator: AppCoordinator {
     
     var rootViewController: UIViewController? {
         return self.navigationController

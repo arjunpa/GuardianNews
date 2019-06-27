@@ -31,7 +31,7 @@ class FavouritesViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         tableView.register(SubtitleCell.self, forCellReuseIdentifier: "cell")
         
-        Article.fetchArticles { _, _ in }
+//        Article.fetchArticles { _, _ in }
     }
     
     @objc func doneButtonPressed() {

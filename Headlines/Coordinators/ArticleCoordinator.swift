@@ -10,7 +10,7 @@ import UIKit
 
 protocol ArticleCoordinator: Coordinator {}
 
-class MainArticleCoordinator: ArticleCoordinator {
+final class MainArticleCoordinator: ArticleCoordinator {
     
     var childCoordinators: [Coordinator] = []
     

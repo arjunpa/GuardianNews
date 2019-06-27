@@ -44,9 +44,10 @@ class Article: Object {
     }
     
     static var all: [Article] {
-        let realm = try! Realm()
-        let all = realm.objects(Article.self)
-        return Array(all)
+//        let realm = try! Realm()
+//        let all = realm.objects(Article.self)
+//        return Array(all)
+        return LocalDataManager<Article>()!.read()!
     }
     
     convenience init?(dictionary: [String : Any]) {
