@@ -22,14 +22,14 @@ final class RemoteDataManager {
                  parameters: Parameters? = nil,
                  headers: HTTPHeaders? = nil,
                  url: URL,
-                 completionHandler: @escaping (Result<Any>) -> Void) {
-        sessionManager.request(url,
+                 completionHandler: @escaping (Result<Data>) -> Void) {
+        self.sessionManager.request(url,
                                method: httpMethod,
                                parameters: parameters,
                                encoding: encoding,
                                headers: headers)
-                        .responseJSON { response in
-            completionHandler(response.result)
+                      .responseData { data in
+                         completionHandler(data.result)
         }
     }
 }

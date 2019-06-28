@@ -24,13 +24,9 @@ class ArticleListService {
         guard let url = URL(string: type(of: self).urlString) else { return }
         self.dataManager.request(url: url) { result in
             switch result {
-            case .success(let response):
-                guard let response = response as? [String: Any],
-                      let articleResponse = response["response"] as? [String: Any],
-                      let articleResults = articleResponse["results"] as? [[String: Any]]
-                      else { return }
-                let articles = articleResults.compactMap({ Article(dictionary: $0) })
-                completion(.success(articles))
+            case .success(let data):
+                guard let articleListResponse = try? JSONDecoder().decode(ArticleListResponse.self, from: data) else { return }
+                completion(.success(articleListResponse.articles))
             case .failure(let error):
                 completion(.failure(error))
             }

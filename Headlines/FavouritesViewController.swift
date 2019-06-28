@@ -56,7 +56,7 @@ extension FavouritesViewController: UITableViewDataSource {
         let article = articles[indexPath.row]
         cell.textLabel?.text = article.headline
         cell.detailTextLabel?.text = article.published?.description
-        cell.imageView?.sd_setImage(with: article.imageURL)
+        //cell.imageView?.sd_setImage(with: article.imageURL)
         
         return cell
     }

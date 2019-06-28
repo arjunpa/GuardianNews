@@ -25,6 +25,8 @@
 		C26778CF22C3AE1100DD7707 /* ArticleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778CE22C3AE1100DD7707 /* ArticleListService.swift */; };
 		C26778D222C3D68400DD7707 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778D122C3D68400DD7707 /* ArticleListViewModel.swift */; };
 		C26778D422C3DFCD00DD7707 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26778D322C3DFCD00DD7707 /* ArticleViewModel.swift */; };
+		C26BE73A22C55C90005FD893 /* String+SanitizeHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE73922C55C90005FD893 /* String+SanitizeHTML.swift */; };
+		C26BE73C22C5D851005FD893 /* ArticleListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE73B22C5D851005FD893 /* ArticleListResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		C26778CE22C3AE1100DD7707 /* ArticleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListService.swift; sourceTree = "<group>"; };
 		C26778D122C3D68400DD7707 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		C26778D322C3DFCD00DD7707 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		C26BE73922C55C90005FD893 /* String+SanitizeHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SanitizeHTML.swift"; sourceTree = "<group>"; };
+		C26BE73B22C5D851005FD893 /* ArticleListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				AFC312801EC1E45A00105E93 /* AppDelegate.swift */,
+				C26BE73822C55C1D005FD893 /* Extensions */,
 				C26778D022C3D41700DD7707 /* ViewModels */,
 				C26778C722C2B26200DD7707 /* Data Managers */,
 				C26778C622C2B07B00DD7707 /* Data Providers */,
@@ -112,6 +117,7 @@
 				AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */,
 				AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */,
 				AFC312961EC1E80800105E93 /* Article.swift */,
+				C26BE73B22C5D851005FD893 /* ArticleListResponse.swift */,
 				AFC312871EC1E45A00105E93 /* Assets.xcassets */,
 				AFC312891EC1E45A00105E93 /* LaunchScreen.storyboard */,
 				AFC3128C1EC1E45A00105E93 /* Info.plist */,
@@ -154,6 +160,14 @@
 				C26778D322C3DFCD00DD7707 /* ArticleViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C26BE73822C55C1D005FD893 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C26BE73922C55C90005FD893 /* String+SanitizeHTML.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +320,10 @@
 				C26778C122C25F0D00DD7707 /* Coordinator.swift in Sources */,
 				AFC312811EC1E45A00105E93 /* AppDelegate.swift in Sources */,
 				C26778CD22C3AAA100DD7707 /* ArticleListDataProvider.swift in Sources */,
+				C26BE73C22C5D851005FD893 /* ArticleListResponse.swift in Sources */,
 				C26778D222C3D68400DD7707 /* ArticleListViewModel.swift in Sources */,
 				C26778CF22C3AE1100DD7707 /* ArticleListService.swift in Sources */,
+				C26BE73A22C55C90005FD893 /* String+SanitizeHTML.swift in Sources */,
 				AFC312971EC1E80800105E93 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,12 @@ class ArticleViewModel {
     init(article: Article) {
         self.title = article.headline
         self.body = article.body
-        self.imageURL = article.imageURL
+        if let rawImageURL = article.rawImageURL {
+            self.imageURL = URL(string: rawImageURL)
+        } else {
+            self.imageURL = nil
+        }
+        
         self.publishedDate = article.published
     }
 }

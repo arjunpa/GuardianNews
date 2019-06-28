@@ -7,45 +7,35 @@
 //
 
 import UIKit
+import Realm
 import RealmSwift
 import ISO8601
 import Alamofire
 
 fileprivate let APIKey = "enj8pstqu5yat6yesfsdmd39"
 
-fileprivate extension String {
-    var strippingTags: String {
-        var result = self.replacingOccurrences(of: "</p> <p>", with: "\n\n") as NSString
-        
-        var range = result.range(of: "<[^>]+>", options: .regularExpression)
-        while range.location != NSNotFound {
-            result = result.replacingCharacters(in: range, with: "") as NSString
-            range = result.range(of: "<[^>]+>", options: .regularExpression)
-        }
-        
-        return result as String
+class Article: Object, Decodable {
+    
+    private enum ArticleCodingKeys: String, CodingKey {
+        case id
+        case webTitle
+        case webPublicationDate
+        case fields
     }
     
-    var url: URL? {
-        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return nil }
-        let matches = detector.matches(in: self, options: [], range: NSRange(location: 0, length: (self as NSString).length))
-        return matches.first?.url
+    private enum FieldsCodingKeys: String, CodingKey {
+        case body
+        case main
     }
-}
-
-class Article: Object {
-    @objc dynamic var headline = ""
-    @objc dynamic var body = ""
+    
+    @objc dynamic var id: String = ""
+    @objc dynamic var headline: String?
     @objc dynamic var published: Date?
-    @objc dynamic var id: String?
-    @objc private dynamic var rawImageURL: String?
-    var imageURL: URL? {
-        guard let rawImageURL = rawImageURL else { return nil }
-        return URL(string: rawImageURL)
-    }
+    @objc dynamic var body: String?
+    @objc dynamic var rawImageURL: String?
     
     override class func primaryKey() -> String? {
-        return "id"
+        return ArticleCodingKeys.id.rawValue
     }
     
     static var all: [Article] {
@@ -55,19 +45,39 @@ class Article: Object {
         return LocalDataManager<Article>()!.read()!
     }
     
-    convenience init?(dictionary: [String : Any]) {
-        self.init()
-        
-        headline = dictionary["webTitle"] as? String ?? ""
-        
-        id = dictionary["id"] as? String
-        
-        if let publicationDate = dictionary["webPublicationDate"] as? String {
-            published = NSDate(iso8601String: publicationDate) as Date?
+    required init() {
+        super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    init(id: String, headline: String?, published: Date?, body: String?, rawImageURL: String?) {
+        super.init()
+        self.id = id
+        self.headline = headline
+        self.published = published
+        self.body = body
+        self.rawImageURL = rawImageURL
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ArticleCodingKeys.self)
+        let id = try container.decode(String.self, forKey: .id)
+        let headline = try container.decodeIfPresent(String.self, forKey: .webTitle)
+        var published: Date?
+        if let dateInString = try container.decodeIfPresent(String.self, forKey: .webPublicationDate) {
+            published = NSDate(iso8601String: dateInString) as Date?
         }
-        
-        guard let fields = dictionary["fields"] as? [String: String] else { return }
-        body = fields["body"]?.strippingTags ?? ""
-        rawImageURL = fields["main"]?.url?.absoluteString
+        let fieldsKeyedContainer = try? container.nestedContainer(keyedBy: FieldsCodingKeys.self, forKey: .fields)
+        let body = try fieldsKeyedContainer?.decodeIfPresent(String.self, forKey: .body)?.strippingTags
+        let rawImageURL = try fieldsKeyedContainer?.decodeIfPresent(String.self,
+                                                                    forKey: .main)?.detectedURLs?.first?.absoluteString
+        self.init(id: id, headline: headline, published: published, body: body, rawImageURL: rawImageURL)
     }
 }
