@@ -80,6 +80,9 @@ extension ArticleViewController: UICollectionViewDataSource {
               else {
                 return UICollectionViewCell()
         }
+        articleViewModel.onFavoriteUpdate = { status in
+            self.articleListViewModel?.updateFavorite(for: articleViewModel, with: status)
+        }
         articleCell.configure(with: articleViewModel)
         return articleCell
     }

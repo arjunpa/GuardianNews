@@ -21,10 +21,19 @@ final class ArticleViewModel {
         return elements
     }()
     
+    let article: Article
+    
+    var isFavorite: Bool {
+        return self.article.isFavorite
+    }
+    
+    var onFavoriteUpdate: ((Bool) -> Void)?
+    
     init(article: Article) {
-      if let headline = article.headline,
-         let rawImageURL = article.rawImageURL,
-         let imageURL = URL(string: rawImageURL) {
+        self.article = article
+        if let headline = article.headline,
+            let rawImageURL = article.rawImageURL,
+            let imageURL = URL(string: rawImageURL) {
             self.elements.append(.headline(ArticleHeadlineElementViewModel(headline: headline,
                                                                            imageURL: imageURL)))
         }
@@ -61,5 +70,12 @@ extension ArticleViewModel: TableViewHeightConfigurable {
     
     func estimatedFooterHeight(for section: Int, targetSize: CGSize) -> CGFloat {
         return type(of: self).estimatedFooterHeight
+    }
+}
+
+extension ArticleViewModel {
+    
+    func updateFavorite(with status: Bool) {
+        
     }
 }

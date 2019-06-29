@@ -38,4 +38,11 @@ final class LocalDataManager<T: Object> {
             self.realm?.create(T.self, value: value, update: update)
         }
     }
+    
+    func update(with block: () -> Void) {
+        
+        try? self.realm?.write {
+            block()
+        }
+    }
 }

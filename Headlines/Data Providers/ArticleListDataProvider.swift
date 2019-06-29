@@ -10,6 +10,7 @@ import Foundation
 
 protocol ArticleListDataProviderInterface {
     func fetchArticles(completion: @escaping (Result<[Article], Error>) -> Void)
+    func updateFavorite(with article: Article, status: Bool)
 }
 
 final class ArticleListDataProvider: ArticleListDataProviderInterface  {
@@ -38,6 +39,12 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
                 }
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func updateFavorite(with article: Article, status: Bool) {
+        self.localDataManager.update {
+            article.isFavorite = status
         }
     }
     

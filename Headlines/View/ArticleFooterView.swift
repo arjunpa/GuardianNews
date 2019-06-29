@@ -10,11 +10,29 @@ import UIKit
 
 class ArticleFooterView: UITableViewHeaderFooterView {
 
-    var isFavoritSelected: Bool = false
+    private struct Constants {
+        static let favoriteButtonImageWhenOn = "favourite-on"
+        static let favoriteButtonImageWhenOff = "favourite-off"
+    }
+    
+    @IBOutlet private weak var favoriteButton: UIButton!
+    
+    var isFavoritSelected: Bool = false {
+        didSet {
+            self.favoriteButton.isSelected = self.isFavoritSelected
+        }
+    }
     
     var didInteractWithFavorite: ((Bool) -> Void)?
     
     var didInteractWithFavoriteList: (() -> Void)?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.favoriteButton.tintColor = UIColor.white
+        self.favoriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOn), for: .selected)
+        self.favoriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOff), for: .normal)
+    }
     
     @IBAction private func didTapOnFavorite() {
         self.isFavoritSelected = !self.isFavoritSelected

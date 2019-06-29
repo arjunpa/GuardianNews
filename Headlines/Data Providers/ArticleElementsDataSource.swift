@@ -68,6 +68,10 @@ extension ArticleElementsDataSource: UITableViewDelegate {
         guard let articleViewModel = self.articleViewModel,
               let articleFooterView = self.dequeueHeaderFooter(with: tableView, reuseIdentifier: ArticleFooterView.reuseIdentifier, nibName: ArticleFooterView.nibName) as? ArticleFooterView
             else { return nil }
+        articleFooterView.isFavoritSelected = self.articleViewModel?.isFavorite ?? false
+        articleFooterView.didInteractWithFavorite = { status in
+            articleViewModel.onFavoriteUpdate?(status)
+        }
         return articleFooterView
     }
 }

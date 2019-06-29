@@ -13,6 +13,7 @@ protocol ArticleListViewModelInterface {
     var articleCount: Int { get }
     func article(at index: Int) -> ArticleViewModel
     func fetchArticles()
+    func updateFavorite(for article: ArticleViewModel, with status: Bool)
 }
 
 protocol ArticleListViewDelegate: class {
@@ -20,6 +21,11 @@ protocol ArticleListViewDelegate: class {
 }
 
 class ArticleListViewModel: ArticleListViewModelInterface {
+    
+    func updateFavorite(for articleViewModel: ArticleViewModel, with status: Bool) {
+        self.articleRepository.updateFavorite(with: articleViewModel.article,
+                                              status: status)
+    }
     
     weak var viewDelegate: ArticleListViewDelegate?
     

@@ -60,6 +60,9 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="favoriteButton" destination="M59-ly-xMp" id="qCl-8z-79t"/>
+            </connections>
             <point key="canvasLocation" x="27.199999999999999" y="-227.58620689655174"/>
         </view>
     </objects>
