@@ -28,11 +28,22 @@ class Article: Object, Decodable {
         case main
     }
     
+    // It is possible to use NSStringFromSelector but keeping it simple for now.
+    enum MemberKeys: String {
+        case id
+        case headline
+        case published
+        case body
+        case rawImageURL
+        case isFavorite
+    }
+    
     @objc dynamic var id: String = ""
     @objc dynamic var headline: String?
     @objc dynamic var published: Date?
     @objc dynamic var body: String?
     @objc dynamic var rawImageURL: String?
+    @objc dynamic var isFavorite: Bool = false
     
     override class func primaryKey() -> String? {
         return ArticleCodingKeys.id.rawValue

@@ -28,7 +28,9 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
             case .success(let articles):
                 
                 //ToDo: If the article does get updated, this might create problems as the favorite property will get reset. So, partial update might be better in this case.
-                self.localDataManager.add(update: true, objects: articles)
+                
+                //self.localDataManager.add(update: true, objects: articles)
+                self.updateLocal(with: articles)
                 completion(.success(self.localDataManager.read() ?? articles))
             case .failure(let error):
                 if let articles = self.localDataManager.read() {
@@ -36,6 +38,18 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
                 }
                 completion(.failure(error))
             }
+        }
+    }
+    
+    private func updateLocal(with articles:[Article]) {
+        articles.forEach { article in
+            self.localDataManager.create(update: true, value: [
+                Article.MemberKeys.id.rawValue: article.id,
+                Article.MemberKeys.headline.rawValue: article.headline as Any,
+                Article.MemberKeys.body.rawValue: article.body as Any,
+                Article.MemberKeys.published.rawValue: article.published as Any,
+                Article.MemberKeys.rawImageURL.rawValue: article.rawImageURL as Any
+            ])
         }
     }
 }

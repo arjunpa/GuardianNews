@@ -8,9 +8,11 @@
 
 import UIKit
 
-final class ArticleElementsDataSource: NSObject, CellConfigurable {
+final class ArticleElementsDataSource: NSObject, TableViewConfigurable {
     
-    internal lazy var reuseIdentifiers: [String] = []
+    internal lazy var reuseIdentifiersForHeaderFooters: [String] = []
+    
+    internal lazy var reuseIdentifiersForCell: [String] = []
     
     var articleViewModel: ArticleViewModel?
 }
@@ -19,6 +21,14 @@ extension ArticleElementsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articleViewModel?.elements.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return type(of: self).defaultHeaderView(for: tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return type(of: self).defaultHeightForHeaderView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,6 +57,17 @@ extension ArticleElementsDataSource: UITableViewDataSource {
 extension ArticleElementsDataSource: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.articleViewModel?.estimatedRowHeight(forRow: indexPath.row, targetSize: tableView.bounds.size) ?? 1.0
+        return self.articleViewModel?.estimatedRowHeight(forRow: indexPath.row, targetSize: tableView.bounds.size) ?? 0.001
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return self.articleViewModel?.estimatedFooterHeight(for: section, targetSize: tableView.bounds.size) ?? 0.001
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let articleViewModel = self.articleViewModel,
+              let articleFooterView = self.dequeueHeaderFooter(with: tableView, reuseIdentifier: ArticleFooterView.reuseIdentifier, nibName: ArticleFooterView.nibName) as? ArticleFooterView
+            else { return nil }
+        return articleFooterView
     }
 }

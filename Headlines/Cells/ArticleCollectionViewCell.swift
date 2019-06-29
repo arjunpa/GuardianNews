@@ -16,6 +16,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     func configure(with articleViewModel: ArticleViewModel) {
         self.articleElementTableView.rowHeight = articleViewModel.rowHeight
+        self.articleElementTableView.sectionFooterHeight = articleViewModel.footerHeight
         self.elementsDataSource.articleViewModel = articleViewModel
         self.articleElementTableView.delegate = self.elementsDataSource
         self.articleElementTableView.dataSource = self.elementsDataSource

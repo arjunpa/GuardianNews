@@ -37,9 +37,11 @@
 		C26BE75B22C7490D005FD893 /* ArticleElementViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE75A22C7490D005FD893 /* ArticleElementViewModels.swift */; };
 		C26BE75D22C75A7E005FD893 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE75C22C75A7E005FD893 /* NibLoadable.swift */; };
 		C26BE75F22C76169005FD893 /* ArticleElementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE75E22C76169005FD893 /* ArticleElementsDataSource.swift */; };
-		C26BE76422C77542005FD893 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE76322C77541005FD893 /* CellConfigurable.swift */; };
+		C26BE76422C77542005FD893 /* TableViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE76322C77541005FD893 /* TableViewConfigurable.swift */; };
 		C26BE76622C7809C005FD893 /* TableViewHeightConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE76522C7809C005FD893 /* TableViewHeightConfigurable.swift */; };
 		C26BE76822C793C9005FD893 /* AutoHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE76722C793C9005FD893 /* AutoHeightTableView.swift */; };
+		C26E492022C7CF0700597048 /* ArticleFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E491F22C7CF0700597048 /* ArticleFooterView.swift */; };
+		C26E492222C7CF1100597048 /* ArticleFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26E492122C7CF1100597048 /* ArticleFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,9 +79,11 @@
 		C26BE75A22C7490D005FD893 /* ArticleElementViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleElementViewModels.swift; sourceTree = "<group>"; };
 		C26BE75C22C75A7E005FD893 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		C26BE75E22C76169005FD893 /* ArticleElementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleElementsDataSource.swift; sourceTree = "<group>"; };
-		C26BE76322C77541005FD893 /* CellConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
+		C26BE76322C77541005FD893 /* TableViewConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewConfigurable.swift; sourceTree = "<group>"; };
 		C26BE76522C7809C005FD893 /* TableViewHeightConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeightConfigurable.swift; sourceTree = "<group>"; };
 		C26BE76722C793C9005FD893 /* AutoHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightTableView.swift; sourceTree = "<group>"; };
+		C26E491F22C7CF0700597048 /* ArticleFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFooterView.swift; sourceTree = "<group>"; };
+		C26E492122C7CF1100597048 /* ArticleFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleFooterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				C26BE74022C72219005FD893 /* Cells */,
 				AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */,
 				AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */,
+				C26E492322C7CF2000597048 /* View */,
 				AFC3128C1EC1E45A00105E93 /* Info.plist */,
 				AFC312891EC1E45A00105E93 /* LaunchScreen.storyboard */,
 				C26BE73D22C71043005FD893 /* Models */,
@@ -227,10 +232,19 @@
 			isa = PBXGroup;
 			children = (
 				C26BE75C22C75A7E005FD893 /* NibLoadable.swift */,
-				C26BE76322C77541005FD893 /* CellConfigurable.swift */,
+				C26BE76322C77541005FD893 /* TableViewConfigurable.swift */,
 				C26BE76522C7809C005FD893 /* TableViewHeightConfigurable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C26E492322C7CF2000597048 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C26E491F22C7CF0700597048 /* ArticleFooterView.swift */,
+				C26E492122C7CF1100597048 /* ArticleFooterView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,7 @@
 				C26BE74B22C7236E005FD893 /* ArticleCollectionViewCell.xib in Resources */,
 				C26BE75322C73ABC005FD893 /* ArticleElementHeadlineImageCell.xib in Resources */,
 				AFC3128B1EC1E45A00105E93 /* LaunchScreen.storyboard in Resources */,
+				C26E492222C7CF1100597048 /* ArticleFooterView.xib in Resources */,
 				C26BE73F22C71662005FD893 /* ArticleViewController.xib in Resources */,
 				AFC312931EC1E4AF00105E93 /* ArticleViewController_old.xib in Resources */,
 				C26BE75922C73B07005FD893 /* ArticleElementTextCell.xib in Resources */,
@@ -381,7 +396,7 @@
 				C26778C322C2706800DD7707 /* AppCoordinator.swift in Sources */,
 				C26778D422C3DFCD00DD7707 /* ArticleViewModel.swift in Sources */,
 				C26778CB22C3A40100DD7707 /* LocalDataManager.swift in Sources */,
-				C26BE76422C77542005FD893 /* CellConfigurable.swift in Sources */,
+				C26BE76422C77542005FD893 /* TableViewConfigurable.swift in Sources */,
 				AFC312991EC1FE4A00105E93 /* FavouritesViewController.swift in Sources */,
 				C26BE74A22C7236E005FD893 /* ArticleCollectionViewCell.swift in Sources */,
 				C26BE75222C73ABC005FD893 /* ArticleElementHeadlineImageCell.swift in Sources */,
@@ -392,6 +407,7 @@
 				AFC312811EC1E45A00105E93 /* AppDelegate.swift in Sources */,
 				C26778CD22C3AAA100DD7707 /* ArticleListDataProvider.swift in Sources */,
 				C26BE73C22C5D851005FD893 /* ArticleListResponse.swift in Sources */,
+				C26E492022C7CF0700597048 /* ArticleFooterView.swift in Sources */,
 				C26BE76622C7809C005FD893 /* TableViewHeightConfigurable.swift in Sources */,
 				C26BE75D22C75A7E005FD893 /* NibLoadable.swift in Sources */,
 				C26BE76822C793C9005FD893 /* AutoHeightTableView.swift in Sources */,

@@ -35,6 +35,19 @@ extension NibLoadable where Self: UITableViewCell {
     }
 }
 
+extension NibLoadable where Self: UITableViewHeaderFooterView {
+    
+    static var nibName: String {
+        return String(describing: Self.self)
+    }
+    
+    static var reuseIdentifier: String {
+        return String(describing: Self.self)
+    }
+}
+
 extension UICollectionViewCell: NibLoadable {}
 
 extension UITableViewCell: NibLoadable {}
+
+extension UITableViewHeaderFooterView: NibLoadable {}

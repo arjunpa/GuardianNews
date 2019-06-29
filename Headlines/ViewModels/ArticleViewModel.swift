@@ -36,10 +36,14 @@ final class ArticleViewModel {
 
 extension ArticleViewModel: TableViewHeightConfigurable {
     
-    private static let rowHeightImage: CGFloat = 520.00
-    private static let rowHeightText: CGFloat = 1750.00
+    private static let estimatedRowHeightText: CGFloat = 1750.00
+    private static let estimatedFooterHeight: CGFloat = 30.0
     
     var rowHeight: CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    var footerHeight: CGFloat {
         return UITableView.automaticDimension
     }
     
@@ -49,9 +53,13 @@ extension ArticleViewModel: TableViewHeightConfigurable {
             return ceil(4/3 * targetSize.width)
         
         case 1:
-            return type(of: self).rowHeightText
+            return type(of: self).estimatedRowHeightText
         default:
-            return type(of: self).rowHeightText
+            return type(of: self).estimatedRowHeightText
         }
+    }
+    
+    func estimatedFooterHeight(for section: Int, targetSize: CGSize) -> CGFloat {
+        return type(of: self).estimatedFooterHeight
     }
 }

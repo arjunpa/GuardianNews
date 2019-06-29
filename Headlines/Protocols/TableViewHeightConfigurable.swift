@@ -10,5 +10,7 @@ import CoreGraphics
 
 protocol TableViewHeightConfigurable {
     var rowHeight: CGFloat { get }
+    var footerHeight: CGFloat { get }
     func estimatedRowHeight(forRow row: Int, targetSize: CGSize) -> CGFloat
+    func estimatedFooterHeight(for section: Int, targetSize: CGSize) -> CGFloat
 }
