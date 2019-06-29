@@ -31,6 +31,9 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
                 self.localDataManager.add(update: true, objects: articles)
                 completion(.success(self.localDataManager.read() ?? articles))
             case .failure(let error):
+                if let articles = self.localDataManager.read() {
+                    completion(.success(articles))
+                }
                 completion(.failure(error))
             }
         }
