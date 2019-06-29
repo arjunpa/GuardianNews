@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="ArticleCollectionViewCell" customModule="Headlines" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSu-8d-bQ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8OT-Ft-3ku" customClass="IntrinsicTableView" customModule="Headlines" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8OT-Ft-3ku" firstAttribute="top" secondItem="MSu-8d-bQ0" secondAttribute="top" id="2s7-UC-9oZ"/>
+                            <constraint firstAttribute="trailing" secondItem="8OT-Ft-3ku" secondAttribute="trailing" id="Hyv-pq-rzN"/>
+                            <constraint firstAttribute="bottom" secondItem="8OT-Ft-3ku" secondAttribute="bottom" id="ZgG-Wd-9LR"/>
+                            <constraint firstItem="8OT-Ft-3ku" firstAttribute="leading" secondItem="MSu-8d-bQ0" secondAttribute="leading" id="kkv-kg-a8M"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="MSu-8d-bQ0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DFc-yL-CY0"/>
+                <constraint firstItem="MSu-8d-bQ0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EA0-65-tfX"/>
+                <constraint firstAttribute="bottom" secondItem="MSu-8d-bQ0" secondAttribute="bottom" id="HRm-BP-Pyl"/>
+                <constraint firstAttribute="trailing" secondItem="MSu-8d-bQ0" secondAttribute="trailing" id="YdO-ea-Qpf"/>
+            </constraints>
+            <size key="customSize" width="320" height="331"/>
+            <connections>
+                <outlet property="articleElementTableView" destination="8OT-Ft-3ku" id="ZPi-DY-Td8"/>
+            </connections>
+            <point key="canvasLocation" x="333.33333333333337" y="189.17410714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
