@@ -28,9 +28,6 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
             switch result {
             case .success(let articles):
                 
-                //ToDo: If the article does get updated, this might create problems as the favorite property will get reset. So, partial update might be better in this case.
-                
-                //self.localDataManager.add(update: true, objects: articles)
                 self.updateLocal(with: articles)
                 completion(.success(self.localDataManager.read() ?? articles))
             case .failure(let error):

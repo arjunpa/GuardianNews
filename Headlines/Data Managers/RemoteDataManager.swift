@@ -11,7 +11,7 @@ import Alamofire
 
 final class RemoteDataManager {
     
-    let sessionManager: Alamofire.SessionManager
+    private let sessionManager: Alamofire.SessionManager
     
     init(sessionManager: Alamofire.SessionManager = Alamofire.SessionManager.default) {
         self.sessionManager = sessionManager

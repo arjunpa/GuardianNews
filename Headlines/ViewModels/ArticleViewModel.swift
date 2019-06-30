@@ -10,6 +10,9 @@ import UIKit
 
 final class ArticleViewModel {
     
+    typealias FavoriteUpdateHandler = ((Bool, Article) -> Void)
+    typealias ShowFavoritesHandler = (() -> Void)
+    
     enum ArticleViewElements {
         case headline(ArticleHeadlineElementViewModel)
         case body(ArticleTextElementViewModel)
@@ -21,15 +24,20 @@ final class ArticleViewModel {
         return elements
     }()
     
-    let article: Article
+    private let article: Article
     
     var isFavorite: Bool {
         return self.article.isFavorite
     }
     
-    var onFavoriteUpdate: ((Bool) -> Void)?
+    private let onFavoriteUpdate: FavoriteUpdateHandler?
+    private let onShowFavorites: ShowFavoritesHandler?
     
-    init(article: Article) {
+    init(onFavoriteUpdate: FavoriteUpdateHandler? = nil,
+         onShowFavorites: ShowFavoritesHandler? = nil,
+         article: Article) {
+        self.onFavoriteUpdate = onFavoriteUpdate
+        self.onShowFavorites = onShowFavorites
         self.article = article
         if let headline = article.headline,
             let rawImageURL = article.rawImageURL,
@@ -76,6 +84,10 @@ extension ArticleViewModel: TableViewHeightConfigurable {
 extension ArticleViewModel {
     
     func updateFavorite(with status: Bool) {
-        
+        self.onFavoriteUpdate?(status, self.article)
+    }
+    
+    func showFavorites() {
+        self.onShowFavorites?()
     }
 }

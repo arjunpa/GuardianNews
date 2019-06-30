@@ -25,7 +25,7 @@ class ArticleFooterView: UITableViewHeaderFooterView {
     
     var didInteractWithFavorite: ((Bool) -> Void)?
     
-    var didInteractWithFavoriteList: (() -> Void)?
+    var onShowFavorites: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +40,6 @@ class ArticleFooterView: UITableViewHeaderFooterView {
     }
     
     @IBAction private func didTapOnFavoriteList() {
-        self.didInteractWithFavoriteList?()
+        self.onShowFavorites?()
     }
 }

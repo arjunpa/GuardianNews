@@ -13,7 +13,6 @@ protocol ArticleListViewModelInterface {
     var articleCount: Int { get }
     func article(at index: Int) -> ArticleViewModel
     func fetchArticles()
-    func updateFavorite(for article: ArticleViewModel, with status: Bool)
 }
 
 protocol ArticleListViewDelegate: class {
@@ -21,11 +20,6 @@ protocol ArticleListViewDelegate: class {
 }
 
 class ArticleListViewModel: ArticleListViewModelInterface {
-    
-    func updateFavorite(for articleViewModel: ArticleViewModel, with status: Bool) {
-        self.articleRepository.updateFavorite(with: articleViewModel.article,
-                                              status: status)
-    }
     
     weak var viewDelegate: ArticleListViewDelegate?
     
@@ -50,11 +44,26 @@ class ArticleListViewModel: ArticleListViewModelInterface {
         self.articleRepository.fetchArticles { result in
             switch result {
             case .success(let articles):
-                self.articleViewModels = articles.map({ ArticleViewModel(article: $0) })
+                self.mapViewModels(with: articles)
             case .failure:
                 break
             }
             self.viewDelegate?.updateView()
         }
+    }
+    
+    private func mapViewModels(with articles:[Article]) {
+        
+        let onFavoriteUpdate: ((Bool, Article) -> Void) = { status, article in
+            self.articleRepository.updateFavorite(with: article, status: status)
+        }
+        
+        let onShowFavorites: (() -> Void) = {
+            
+        }
+        
+        self.articleViewModels = articles.map({ ArticleViewModel(onFavoriteUpdate: onFavoriteUpdate,
+                                                                 onShowFavorites: onShowFavorites,
+                                                                 article: $0) })
     }
 }

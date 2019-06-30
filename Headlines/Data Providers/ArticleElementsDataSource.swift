@@ -70,7 +70,10 @@ extension ArticleElementsDataSource: UITableViewDelegate {
             else { return nil }
         articleFooterView.isFavoritSelected = self.articleViewModel?.isFavorite ?? false
         articleFooterView.didInteractWithFavorite = { status in
-            articleViewModel.onFavoriteUpdate?(status)
+           articleViewModel.updateFavorite(with: status)
+        }
+        articleFooterView.onShowFavorites = {
+            articleViewModel.showFavorites()
         }
         return articleFooterView
     }
