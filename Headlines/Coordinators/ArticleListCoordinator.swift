@@ -24,6 +24,7 @@ final class MainArticleCoordinator: ArticleListCoordinator {
         let articleListClient = ArticleListService(dataManager: remoteDataManager)
         let articleListDataProvider = ArticleListDataProvider(articleClient: articleListClient,
                                                               localDataManager: localDataManager)
+        
        return ArticleListViewModel(articleRepository: articleListDataProvider)
     }()
     
@@ -32,7 +33,19 @@ final class MainArticleCoordinator: ArticleListCoordinator {
     }
     
     func start() {
+        self.articleListViewModel.coordinatorDelegate = self
         let articleViewController = ArticleViewController(with: self.articleListViewModel)
         self.navigationController?.pushViewController(articleViewController, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+}
+
+extension MainArticleCoordinator: ArticleListCoordinatorDelegate {
+    
+    internal func showFavourites() {
+        guard let rootNavigationController = self.navigationController else { return }
+        let favoriteArticleListCoordinator = FavoriteListCoordinator(with: rootNavigationController)
+        self.addChildCoordinator(coordinator: favoriteArticleListCoordinator)
+        favoriteArticleListCoordinator.start()
     }
 }

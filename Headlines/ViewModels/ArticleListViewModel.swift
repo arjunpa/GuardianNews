@@ -19,9 +19,15 @@ protocol ArticleListViewDelegate: class {
     func updateView()
 }
 
+protocol ArticleListCoordinatorDelegate: class {
+    func showFavourites()
+}
+
 class ArticleListViewModel: ArticleListViewModelInterface {
     
     weak var viewDelegate: ArticleListViewDelegate?
+    
+    weak var coordinatorDelegate: ArticleListCoordinatorDelegate?
     
     var articleCount: Int {
         return self.articleViewModels.count
@@ -59,7 +65,7 @@ class ArticleListViewModel: ArticleListViewModelInterface {
         }
         
         let onShowFavourites: (() -> Void) = {
-            
+            self.coordinatorDelegate?.showFavourites()
         }
         
         self.articleViewModels = articles.map({ ArticleViewModel(onFavouriteUpdate: onFavouriteUpdate,

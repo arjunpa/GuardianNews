@@ -21,6 +21,10 @@ final class LocalDataManager<T: Object> {
         self.realm = realm
     }
     
+    func read(with query: String, args: Any...) -> [T]? {
+        guard let objects = self.realm?.objects(T.self).filter(query, args) else { return nil }
+        return Array(objects)
+    }
     
     func read() -> [T]? {
         guard let objects = self.realm?.objects(T.self) else { return nil }
