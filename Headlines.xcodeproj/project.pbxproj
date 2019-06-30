@@ -92,6 +92,7 @@
 		C2F5DD0922C8AA85007EB7CC /* FavouriteArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleListViewModel.swift; sourceTree = "<group>"; };
 		C2F5DD0B22C8AF64007EB7CC /* FavouriteArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleViewModel.swift; sourceTree = "<group>"; };
 		C2F5DD0E22C8B175007EB7CC /* FavouriteArticleListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleListDataProvider.swift; sourceTree = "<group>"; };
+		C2F5DD1122C8DA66007EB7CC /* Superclarendon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Superclarendon-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		AFC3127F1EC1E45A00105E93 /* Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				C2F5DD1022C8DA55007EB7CC /* Assets */,
 				AFC312801EC1E45A00105E93 /* AppDelegate.swift */,
 				C2F5DD0D22C8B0A0007EB7CC /* View Controllers */,
 				AFC312871EC1E45A00105E93 /* Assets.xcassets */,
@@ -265,6 +267,14 @@
 				AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C2F5DD1022C8DA55007EB7CC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C2F5DD1122C8DA66007EB7CC /* Superclarendon-Regular.ttf */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

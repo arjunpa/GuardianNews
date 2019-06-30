@@ -10,7 +10,11 @@ import UIKit
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet private weak var articleElementTableView: UITableView!
+    @IBOutlet private weak var articleElementTableView: UITableView! {
+        didSet {
+            self.articleElementTableView.separatorStyle = .none
+        }
+    }
     
     private lazy var elementsDataSource = ArticleElementsDataSource()
     
