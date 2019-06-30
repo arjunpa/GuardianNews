@@ -15,31 +15,31 @@ class ArticleFooterView: UITableViewHeaderFooterView {
         static let favoriteButtonImageWhenOff = "favourite-off"
     }
     
-    @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private weak var favouriteButton: UIButton!
     
-    var isFavoritSelected: Bool = false {
+    var isFavouriteSelected: Bool = false {
         didSet {
-            self.favoriteButton.isSelected = self.isFavoritSelected
+            self.favouriteButton.isSelected = self.isFavouriteSelected
         }
     }
     
-    var didInteractWithFavorite: ((Bool) -> Void)?
+    var didInteractWithFavourite: ((Bool) -> Void)?
     
-    var onShowFavorites: (() -> Void)?
+    var onShowFavourites: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.favoriteButton.tintColor = UIColor.white
-        self.favoriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOn), for: .selected)
-        self.favoriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOff), for: .normal)
+        self.favouriteButton.tintColor = UIColor.white
+        self.favouriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOn), for: .selected)
+        self.favouriteButton.setBackgroundImage(UIImage(named: Constants.favoriteButtonImageWhenOff), for: .normal)
     }
     
-    @IBAction private func didTapOnFavorite() {
-        self.isFavoritSelected = !self.isFavoritSelected
-        self.didInteractWithFavorite?(self.isFavoritSelected)
+    @IBAction private func didTapOnFavourite() {
+        self.isFavouriteSelected = !self.isFavouriteSelected
+        self.didInteractWithFavourite?(self.isFavouriteSelected)
     }
     
     @IBAction private func didTapOnFavoriteList() {
-        self.onShowFavorites?()
+        self.onShowFavourites?()
     }
 }

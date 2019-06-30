@@ -42,6 +42,7 @@
 		C26BE76822C793C9005FD893 /* AutoHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26BE76722C793C9005FD893 /* AutoHeightTableView.swift */; };
 		C26E492022C7CF0700597048 /* ArticleFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E491F22C7CF0700597048 /* ArticleFooterView.swift */; };
 		C26E492222C7CF1100597048 /* ArticleFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26E492122C7CF1100597048 /* ArticleFooterView.xib */; };
+		C2F5DD0822C895F2007EB7CC /* FavouriteListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F5DD0722C895F2007EB7CC /* FavouriteListCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		C26BE76722C793C9005FD893 /* AutoHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoHeightTableView.swift; sourceTree = "<group>"; };
 		C26E491F22C7CF0700597048 /* ArticleFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFooterView.swift; sourceTree = "<group>"; };
 		C26E492122C7CF1100597048 /* ArticleFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleFooterView.xib; sourceTree = "<group>"; };
+		C2F5DD0722C895F2007EB7CC /* FavouriteListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				C26778C022C25F0D00DD7707 /* Coordinator.swift */,
 				C26778C222C2706800DD7707 /* AppCoordinator.swift */,
 				C26778C422C2960800DD7707 /* ArticleListCoordinator.swift */,
+				C2F5DD0722C895F2007EB7CC /* FavouriteListCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				AFC312831EC1E45A00105E93 /* ArticleViewController.swift in Sources */,
 				C26BE75F22C76169005FD893 /* ArticleElementsDataSource.swift in Sources */,
 				C26778C122C25F0D00DD7707 /* Coordinator.swift in Sources */,
+				C2F5DD0822C895F2007EB7CC /* FavouriteListCoordinator.swift in Sources */,
 				AFC312811EC1E45A00105E93 /* AppDelegate.swift in Sources */,
 				C26778CD22C3AAA100DD7707 /* ArticleListDataProvider.swift in Sources */,
 				C26BE73C22C5D851005FD893 /* ArticleListResponse.swift in Sources */,

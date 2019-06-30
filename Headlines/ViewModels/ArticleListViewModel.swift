@@ -54,16 +54,16 @@ class ArticleListViewModel: ArticleListViewModelInterface {
     
     private func mapViewModels(with articles:[Article]) {
         
-        let onFavoriteUpdate: ((Bool, Article) -> Void) = { status, article in
-            self.articleRepository.updateFavorite(with: article, status: status)
+        let onFavouriteUpdate: ((Bool, Article) -> Void) = { status, article in
+            self.articleRepository.updateFavourite(with: article, status: status)
         }
         
-        let onShowFavorites: (() -> Void) = {
+        let onShowFavourites: (() -> Void) = {
             
         }
         
-        self.articleViewModels = articles.map({ ArticleViewModel(onFavoriteUpdate: onFavoriteUpdate,
-                                                                 onShowFavorites: onShowFavorites,
+        self.articleViewModels = articles.map({ ArticleViewModel(onFavouriteUpdate: onFavouriteUpdate,
+                                                                 onShowFavourites: onShowFavourites,
                                                                  article: $0) })
     }
 }

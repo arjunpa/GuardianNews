@@ -23,7 +23,7 @@
                             <rect key="frame" x="30" y="8" width="26" height="26"/>
                             <state key="normal" backgroundImage="favourite-off"/>
                             <connections>
-                                <action selector="didTapOnFavorite" destination="iN0-l3-epB" eventType="touchUpInside" id="O6e-rE-mL2"/>
+                                <action selector="didTapOnFavourite" destination="iN0-l3-epB" eventType="touchUpInside" id="GPJ-Fv-ygh"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyQ-Zd-HxT">
@@ -32,7 +32,7 @@
                                 <color key="titleColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTapOnFavoriteList" destination="iN0-l3-epB" eventType="touchUpInside" id="6r2-H4-yzJ"/>
+                                <action selector="didTapOnFavoriteList" destination="iN0-l3-epB" eventType="touchUpInside" id="aef-re-n43"/>
                             </connections>
                         </button>
                     </subviews>
@@ -61,7 +61,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="favoriteButton" destination="M59-ly-xMp" id="qCl-8z-79t"/>
+                <outlet property="favouriteButton" destination="M59-ly-xMp" id="qCl-8z-79t"/>
             </connections>
             <point key="canvasLocation" x="27.199999999999999" y="-227.58620689655174"/>
         </view>

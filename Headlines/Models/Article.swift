@@ -35,7 +35,7 @@ class Article: Object, Decodable {
         case published
         case body
         case rawImageURL
-        case isFavorite
+        case isFavourite
     }
     
     @objc dynamic var id: String = ""
@@ -43,7 +43,7 @@ class Article: Object, Decodable {
     @objc dynamic var published: Date?
     @objc dynamic var body: String?
     @objc dynamic var rawImageURL: String?
-    @objc dynamic var isFavorite: Bool = false
+    @objc dynamic var isFavourite: Bool = false
     
     override class func primaryKey() -> String? {
         return ArticleCodingKeys.id.rawValue
