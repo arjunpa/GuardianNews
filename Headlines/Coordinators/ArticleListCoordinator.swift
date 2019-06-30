@@ -8,13 +8,15 @@
 
 import UIKit
 
-protocol ArticleListCoordinator: Coordinator {}
-
-final class MainArticleCoordinator: ArticleListCoordinator {
+final class MainArticleCoordinator: Coordinator {
+    
+    var coordinatorDidFinish: ((Coordinator) -> Void)?
     
     var childCoordinators: [Coordinator] = []
     
     weak var navigationController: UINavigationController?
+    
+    private weak var rootViewController: UIViewController?
     
     private lazy var articleListViewModel: ArticleListViewModel = {
         guard let localDataManager = LocalDataManager<Article>() else {
@@ -35,6 +37,7 @@ final class MainArticleCoordinator: ArticleListCoordinator {
     func start() {
         self.articleListViewModel.coordinatorDelegate = self
         let articleViewController = ArticleViewController(with: self.articleListViewModel)
+        self.rootViewController = articleViewController
         self.navigationController?.pushViewController(articleViewController, animated: false)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
@@ -43,8 +46,12 @@ final class MainArticleCoordinator: ArticleListCoordinator {
 extension MainArticleCoordinator: ArticleListCoordinatorDelegate {
     
     internal func showFavourites() {
-        guard let rootNavigationController = self.navigationController else { return }
-        let favoriteArticleListCoordinator = FavoriteListCoordinator(with: rootNavigationController)
+        guard let rootViewController = self.rootViewController else { return }
+        let favoriteArticleListCoordinator = FavoriteListCoordinator(with: rootViewController)
+        favoriteArticleListCoordinator.coordinatorDidFinish = { coordinator in
+            self.removeChildCoordinator(coordinator: coordinator)
+        }
+        
         self.addChildCoordinator(coordinator: favoriteArticleListCoordinator)
         favoriteArticleListCoordinator.start()
     }

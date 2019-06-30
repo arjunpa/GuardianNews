@@ -10,6 +10,8 @@ import Foundation
 
 protocol Coordinator: class {
     
+    var coordinatorDidFinish: ((Coordinator) -> Void)? { get set }
+    
     var childCoordinators: [Coordinator] { get set }
     
     func start()

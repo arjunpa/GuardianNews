@@ -15,6 +15,8 @@ protocol AppCoordinator: Coordinator {
 
 final class MainAppCoordinator: AppCoordinator {
     
+    var coordinatorDidFinish: ((Coordinator) -> Void)?
+    
     var rootViewController: UIViewController? {
         return self.navigationController
     }

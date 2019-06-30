@@ -50,7 +50,7 @@ class FavouritesViewController: UIViewController {
     }
     
     @objc func doneButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        self.favouriteArticleListViewModel?.didFinish()
     }
 }
 

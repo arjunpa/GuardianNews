@@ -10,9 +10,13 @@ import UIKit
 
 class FavoriteListCoordinator: Coordinator {
     
+    var coordinatorDidFinish: ((Coordinator) -> Void)?
+    
     var childCoordinators: [Coordinator] = []
     
-    private weak var rootNavigationController: UINavigationController?
+    private weak var sourceViewController: UIViewController?
+    
+    private weak var rootViewController: UIViewController?
     
     private lazy var favouriteArticleListViewModel: FavouriteArticleListViewModel = {
         guard let localDataManager = LocalDataManager<Article>() else {
@@ -22,15 +26,23 @@ class FavoriteListCoordinator: Coordinator {
         return FavouriteArticleListViewModel(dataProvider: dataProvider)
     }()
     
-    init(with rootNavigationController: UINavigationController) {
-        self.rootNavigationController = rootNavigationController
+    init(with sourceViewController: UIViewController) {
+        self.sourceViewController = sourceViewController
     }
     
     func start() {
+        self.favouriteArticleListViewModel.coordinatorDelegate = self
         let favouriteListViewController = FavouritesViewController(with: self.favouriteArticleListViewModel)
         let navigationController = UINavigationController(rootViewController: favouriteListViewController)
-        self.rootNavigationController?.topViewController?.present(navigationController,
-                                                                  animated: true,
-                                                                  completion: nil)
+        self.rootViewController = navigationController
+        self.sourceViewController?.present(navigationController, animated: true, completion: nil)
+    }
+}
+
+extension FavoriteListCoordinator: FavoriteArticleListCoordinatorDelegate {
+    
+    func didFinish() {
+        self.rootViewController?.dismiss(animated: true, completion: nil)
+        self.coordinatorDidFinish?(self)
     }
 }

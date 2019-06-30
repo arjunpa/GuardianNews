@@ -46,6 +46,9 @@
 		C2F5DD0A22C8AA85007EB7CC /* FavouriteArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F5DD0922C8AA85007EB7CC /* FavouriteArticleListViewModel.swift */; };
 		C2F5DD0C22C8AF64007EB7CC /* FavouriteArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F5DD0B22C8AF64007EB7CC /* FavouriteArticleViewModel.swift */; };
 		C2F5DD0F22C8B175007EB7CC /* FavouriteArticleListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F5DD0E22C8B175007EB7CC /* FavouriteArticleListDataProvider.swift */; };
+		C2F5DD1422C9013F007EB7CC /* FavouriteArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F5DD1222C9013F007EB7CC /* FavouriteArticleTableViewCell.swift */; };
+		C2F5DD1522C9013F007EB7CC /* FavouriteArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F5DD1322C9013F007EB7CC /* FavouriteArticleTableViewCell.xib */; };
+		C2F5DD1722C904BB007EB7CC /* Superclarendon-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F5DD1122C8DA66007EB7CC /* Superclarendon-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +96,8 @@
 		C2F5DD0B22C8AF64007EB7CC /* FavouriteArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleViewModel.swift; sourceTree = "<group>"; };
 		C2F5DD0E22C8B175007EB7CC /* FavouriteArticleListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleListDataProvider.swift; sourceTree = "<group>"; };
 		C2F5DD1122C8DA66007EB7CC /* Superclarendon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Superclarendon-Regular.ttf"; sourceTree = "<group>"; };
+		C2F5DD1222C9013F007EB7CC /* FavouriteArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArticleTableViewCell.swift; sourceTree = "<group>"; };
+		C2F5DD1322C9013F007EB7CC /* FavouriteArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteArticleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +239,8 @@
 				C26BE75622C73B07005FD893 /* ArticleElementTextCell.swift */,
 				C26BE75722C73B07005FD893 /* ArticleElementTextCell.xib */,
 				C26BE76722C793C9005FD893 /* AutoHeightTableView.swift */,
+				C2F5DD1222C9013F007EB7CC /* FavouriteArticleTableViewCell.swift */,
+				C2F5DD1322C9013F007EB7CC /* FavouriteArticleTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -341,8 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F5DD1722C904BB007EB7CC /* Superclarendon-Regular.ttf in Resources */,
 				AFC312951EC1E4B300105E93 /* FavouritesViewController.xib in Resources */,
 				C26BE74B22C7236E005FD893 /* ArticleCollectionViewCell.xib in Resources */,
+				C2F5DD1522C9013F007EB7CC /* FavouriteArticleTableViewCell.xib in Resources */,
 				C26BE75322C73ABC005FD893 /* ArticleElementHeadlineImageCell.xib in Resources */,
 				AFC3128B1EC1E45A00105E93 /* LaunchScreen.storyboard in Resources */,
 				C26E492222C7CF1100597048 /* ArticleFooterView.xib in Resources */,
@@ -450,6 +459,7 @@
 				C26BE75B22C7490D005FD893 /* ArticleElementViewModels.swift in Sources */,
 				C26778CF22C3AE1100DD7707 /* ArticleListService.swift in Sources */,
 				C26BE73A22C55C90005FD893 /* String+SanitizeHTML.swift in Sources */,
+				C2F5DD1422C9013F007EB7CC /* FavouriteArticleTableViewCell.swift in Sources */,
 				AFC312971EC1E80800105E93 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

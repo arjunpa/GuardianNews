@@ -9,21 +9,28 @@
 import Foundation
 
 protocol FavouriteArticleListViewModelInterface {
+    var coordinatorDelegate: FavoriteArticleListCoordinatorDelegate? { get set }
     var viewDelegate: FavouriteArticleListViewDelegate? { get set }
     var numberOfArticles: Int { get }
     func fetchFavouriteArticles(with searchTerm: String?)
     func favouriteArticle(at index: Int) -> FavouriteArticleViewModel
+    func didFinish()
 }
 
 protocol FavouriteArticleListViewDelegate: class {
     func updateView()
 }
 
-class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
+protocol FavoriteArticleListCoordinatorDelegate: class {
+    func didFinish()
+}
 
+class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
+    
     private let dataProvider: FavouriteArticleListDataProviderInterface
     private lazy var favouriteArticleViewModels: [FavouriteArticleViewModel] = []
     
+    weak var coordinatorDelegate: FavoriteArticleListCoordinatorDelegate?
     weak var viewDelegate: FavouriteArticleListViewDelegate?
     
     var numberOfArticles: Int {
@@ -32,6 +39,10 @@ class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
     
     init(dataProvider: FavouriteArticleListDataProviderInterface) {
         self.dataProvider = dataProvider
+    }
+    
+    func didFinish() {
+        self.coordinatorDelegate?.didFinish()
     }
     
     func fetchFavouriteArticles(with searchTerm: String?) {

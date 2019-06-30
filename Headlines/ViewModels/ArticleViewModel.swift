@@ -54,7 +54,7 @@ final class ArticleViewModel {
 extension ArticleViewModel: TableViewHeightConfigurable {
     
     private static let estimatedRowHeightText: CGFloat = 1750.00
-    private static let estimatedFooterHeight: CGFloat = 30.0
+    private static let estimatedFooterHeight: CGFloat = 77.0
     
     var rowHeight: CGFloat {
         return UITableView.automaticDimension
