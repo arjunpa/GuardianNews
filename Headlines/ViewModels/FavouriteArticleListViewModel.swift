@@ -9,6 +9,7 @@
 import Foundation
 
 protocol FavouriteArticleListViewModelInterface {
+    var titleForView: String { get }
     var coordinatorDelegate: FavoriteArticleListCoordinatorDelegate? { get set }
     var viewDelegate: FavouriteArticleListViewDelegate? { get set }
     var numberOfArticles: Int { get }
@@ -36,6 +37,11 @@ class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
     var numberOfArticles: Int {
         return self.favouriteArticleViewModels.count
     }
+    
+    var titleForView: String {
+        return "\(self.numberOfArticles) favourites"
+    }
+    
     
     init(dataProvider: FavouriteArticleListDataProviderInterface) {
         self.dataProvider = dataProvider

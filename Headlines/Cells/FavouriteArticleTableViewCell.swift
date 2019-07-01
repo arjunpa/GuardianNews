@@ -7,18 +7,23 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavouriteArticleTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet private weak var headlineLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var articleImageView: UIImageView!
+    
+    func configure(with viewModel: FavouriteArticleViewModel) {
+        self.headlineLabel.text = viewModel.headline
+        self.dateLabel.text = viewModel.date
+        self.articleImageView.sd_setImage(with: viewModel.imageURL)
     }
     
+    override func prepareForReuse() {
+        self.articleImageView.sd_cancelCurrentImageLoad()
+        self.articleImageView.image = nil
+    }
 }
+
