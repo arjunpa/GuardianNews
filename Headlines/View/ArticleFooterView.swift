@@ -17,14 +17,17 @@ class ArticleFooterView: UITableViewHeaderFooterView {
     
     @IBOutlet private weak var favouriteButton: UIButton!
     
+    /// A bool indicating whether the favourite button is selected.
     var isFavouriteSelected: Bool = false {
         didSet {
             self.favouriteButton.isSelected = self.isFavouriteSelected
         }
     }
     
+    /// A callback that is invoked when the favourite button is interacted upon.
     var didInteractWithFavourite: ((Bool) -> Void)?
     
+    /// A callback that is interacted with when the show favourites button is interacted upon.
     var onShowFavourites: (() -> Void)?
     
     override func awakeFromNib() {

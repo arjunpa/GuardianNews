@@ -9,6 +9,14 @@
 import Foundation
 
 protocol FavouriteArticleListDataProviderInterface {
+    
+    /**
+     Fetch favourite articles with the associated search term.
+    
+     - Parameters:
+       - searchTerm: The search term used during the query.
+       - completion: The completion block that is executed once done.
+    */
     func fetchFavouriteArticles(with searchTerm: String?, completion: @escaping (Result<[Article], Error>) -> Void)
 }
 
@@ -20,6 +28,11 @@ class FavouriteArticleListDataProvider: FavouriteArticleListDataProviderInterfac
     
     private let localDataManager: LocalDataManager<Article>
     
+    /**
+     Initializes the data provider with a local data manager.
+    
+     - Parameter localDataManager: The local data manager.
+    */
     init(localDataManager: LocalDataManager<Article>) {
         self.localDataManager = localDataManager
     }

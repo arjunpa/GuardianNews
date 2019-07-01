@@ -13,10 +13,26 @@ final class RemoteDataManager {
     
     private let sessionManager: Alamofire.SessionManager
     
+    /**
+     Initialize the manager with a session object. Defauls to the default session.
+    
+     - Parameter sessionManager: The session manager.
+    */
     init(sessionManager: Alamofire.SessionManager = Alamofire.SessionManager.default) {
         self.sessionManager = sessionManager
     }
     
+    /**
+     Make a request to a web service with given parameters.
+    
+     - Parameters:
+       - httpMethod: The HTTP method to be used.
+       - encoding: The parameter encoder. Defaults to URLEncoding.
+       - parameters: The parameters to be send in the body of the request
+       - headers: The headers.
+       - url: The URL to the web service
+       - completionHandler: The completion handler.
+    */
     func request(httpMethod: HTTPMethod = .get,
                  encoding: ParameterEncoding = URLEncoding.default,
                  parameters: Parameters? = nil,

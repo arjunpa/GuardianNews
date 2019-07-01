@@ -8,7 +8,8 @@
 
 import UIKit
 
-class IntrinsicTableView: UITableView {
+/// A tableview that manages its intrinsic size based on its content size.
+final class IntrinsicTableView: UITableView {
     
     override var contentSize:CGSize {
         didSet {

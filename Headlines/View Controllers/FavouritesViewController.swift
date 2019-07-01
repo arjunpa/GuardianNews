@@ -15,8 +15,6 @@ class FavouritesViewController: UIViewController {
     
     private static let estimatedHeight: CGFloat = 40.0
     
-    var articleSelected: ((IndexPath) -> Void)?
-    
     var favouriteArticleListViewModel: FavouriteArticleListViewModel?
     
     @IBOutlet private weak var tableView: UITableView!

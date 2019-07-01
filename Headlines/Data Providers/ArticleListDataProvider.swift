@@ -8,16 +8,39 @@
 
 import Foundation
 
+/// A common interface the article data providers should conform to.
 protocol ArticleListDataProviderInterface {
+    
+    /**
+     Fetch articles from remote or local.
+    
+     - Parameter completion: The completion block that is executed with the result.
+    */
     func fetchArticles(completion: @escaping (Result<[Article], Error>) -> Void)
+    
+    /**
+     Update the favorite status of the article
+    
+     - Parameters:
+       - article: The article.
+       - status: A boolean indicating whether the article was added as a favourite or removed as a favourite.
+    */
     func updateFavourite(with article: Article, status: Bool)
 }
 
+/// A data provider for the articles.
 final class ArticleListDataProvider: ArticleListDataProviderInterface  {
     
     private let articleClient: ArticleListService
     private let localDataManager: LocalDataManager<Article>
     
+    /**
+     Initializes the data provider with a service client and a local data manager.
+    
+     - Parameters:
+       - articleClient: The service client
+       - localDataManager: The local data manager.
+    */
     init(articleClient: ArticleListService, localDataManager: LocalDataManager<Article>) {
         self.articleClient = articleClient
         self.localDataManager = localDataManager

@@ -29,6 +29,9 @@ final class MainAppCoordinator: AppCoordinator {
 
     let window: UIWindow
     
+    /// Initialize the coordinator with a key window
+    ///
+    /// - Parameter window: The application window.
     init(window: UIWindow) {
         self.window = window
     }

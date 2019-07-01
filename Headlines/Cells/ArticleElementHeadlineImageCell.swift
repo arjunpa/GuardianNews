@@ -19,6 +19,11 @@ final class ArticleElementHeadlineImageCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
+    /**
+     Configure the cell with the given view model
+    
+     - Parameter elementViewModel: The view model
+    */
     func configure(with elementViewModel: ArticleHeadlineElementViewModel) {
         self.articleHeadline.text = elementViewModel.headline
         self.articleImageView.sd_setImage(with: elementViewModel.imageURL)

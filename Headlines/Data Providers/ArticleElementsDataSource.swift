@@ -28,7 +28,7 @@ extension ArticleElementsDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return type(of: self).defaultHeightForHeaderView
+        return type(of: self).defaultHeightForHeaderFooterView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

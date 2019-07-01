@@ -17,6 +17,11 @@ final class ArticleElementTextCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
+    /**
+     Configures the cell with the given view model.
+    
+     - Parameter elementViewModel: The view model.
+    */
     func configure(with elementViewModel: ArticleTextElementViewModel) {
         self.articleBodyLabel.text = elementViewModel.text
     }

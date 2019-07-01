@@ -16,10 +16,20 @@ class ArticleListService {
     
     private let dataManager: RemoteDataManager
     
+    /**
+     Initializes the service with a remote data manager.
+    
+     - Parameter dataManager: The remote data manager.
+    */
     init(dataManager: RemoteDataManager) {
         self.dataManager = dataManager
     }
     
+    /**
+     Fetch articles from the web service.
+    
+     - Parameter completion: The completion handler invoked with articles, if successful or error, if it fails.
+    */
     func fetchArticles(completion: @escaping (Result<[Article], Error>) -> Void) {
         guard let url = URL(string: type(of: self).urlString) else { return }
         self.dataManager.request(url: url) { result in

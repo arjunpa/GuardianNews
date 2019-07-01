@@ -30,6 +30,9 @@ final class MainArticleCoordinator: Coordinator {
        return ArticleListViewModel(articleRepository: articleListDataProvider)
     }()
     
+    /// Initialize the coordinator with a root navigation controller.
+    ///
+    /// - Parameter rootViewController: The root navigation controller/
     init(rootViewController: UINavigationController) {
         self.navigationController = rootViewController
     }

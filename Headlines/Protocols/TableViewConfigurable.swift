@@ -9,7 +9,11 @@
 import UIKit
 
 protocol TableViewConfigurable: class {
+    
+    /// The reuse identifiers for the cell.
     var reuseIdentifiersForCell: [String] { set get }
+    
+    /// The reuse identifiers for the headers and footers of the table view.
     var reuseIdentifiersForHeaderFooters: [String] { set get }
 }
 
@@ -19,7 +23,8 @@ extension TableViewConfigurable {
         return "DefaultHeaderView"
     }
     
-    static var defaultHeightForHeaderView: CGFloat {
+    /// The default height for the header or footer view.
+    static var defaultHeightForHeaderFooterView: CGFloat {
         return 0.01
     }
     
@@ -27,6 +32,15 @@ extension TableViewConfigurable {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.defaultHeaderViewReuseIdentifier)
     }
     
+    /**
+     Dequeues a cell associated with the given tableview and ensures the cell is registered with the associated nib before performing the dequeue.
+    
+     - Parameters:
+       - tableView: The table view.
+       - reuseIdentifier: The reuse identifier.
+       - nibName: The nib name associated with the cell.
+     - Returns: A table view cell.
+    */
     func dequeueCell(with tableView: UITableView, reuseIdentifier: String, nibName: String) -> UITableViewCell? {
         if !self.reuseIdentifiersForCell.contains(reuseIdentifier) {
             self.reuseIdentifiersForCell.append(reuseIdentifier)
@@ -35,6 +49,15 @@ extension TableViewConfigurable {
         return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
     }
     
+    /**
+      Dequeues a header footer view associated with the given tableview and ensures the view is registered with the associated nib before performing the dequeue.
+    
+     - Parameters:
+       - tableView: The table view
+       - reuseIdentifier: The reuse identifier.
+       - nibName: The nib name associated with the view
+     - Returns: A table header footer view.
+    */
     func dequeueHeaderFooter(with tableView: UITableView, reuseIdentifier: String, nibName: String) -> UITableViewHeaderFooterView? {
         if !self.reuseIdentifiersForHeaderFooters.contains(reuseIdentifier) {
             self.reuseIdentifiersForHeaderFooters.append(reuseIdentifier)

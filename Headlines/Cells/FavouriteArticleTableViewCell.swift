@@ -15,6 +15,11 @@ class FavouriteArticleTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var articleImageView: UIImageView!
     
+    /**
+    Configures the cell with the given view model.
+    
+    - Parameter viewModel: The view model.
+    */
     func configure(with viewModel: FavouriteArticleViewModel) {
         self.headlineLabel.text = viewModel.headline
         self.dateLabel.text = viewModel.date
@@ -22,6 +27,8 @@ class FavouriteArticleTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        // Ensures the reused cell doesn't show a old image and also that the image download associated with the old one is cancelled before reuse.
+        
         self.articleImageView.sd_cancelCurrentImageLoad()
         self.articleImageView.image = nil
     }

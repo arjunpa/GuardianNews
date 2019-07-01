@@ -9,9 +9,23 @@
 import Foundation
 
 protocol ArticleListViewModelInterface {
+    
+    /// The view delegate.
     var viewDelegate: ArticleListViewDelegate? { get set }
+    
+    /// The number of articles.
     var articleCount: Int { get }
+    
+    /**
+     Article at an index.
+    
+     - Parameter index: The index.
+     - Returns: The article view model at the given index.
+    */
     func article(at index: Int) -> ArticleViewModel
+    
+    
+    /// Fetch articles.
     func fetchArticles()
 }
 
@@ -37,6 +51,11 @@ class ArticleListViewModel: ArticleListViewModelInterface {
     
     private let articleRepository: ArticleListDataProviderInterface
     
+    /**
+     Initializes the view model with a data provider.
+    
+     - Parameter articleRepository: The repository or data provider.
+    */
     init(articleRepository: ArticleListDataProviderInterface) {
         self.articleRepository = articleRepository
     }

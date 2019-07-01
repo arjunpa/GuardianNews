@@ -18,6 +18,11 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     private lazy var elementsDataSource = ArticleElementsDataSource()
     
+    /**
+     Configures the cell with the given view model
+    
+     - Parameter articleViewModel: The view model
+    */
     func configure(with articleViewModel: ArticleViewModel) {
         self.articleElementTableView.rowHeight = articleViewModel.rowHeight
         self.articleElementTableView.sectionFooterHeight = articleViewModel.footerHeight
@@ -27,6 +32,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         self.articleElementTableView.reloadData()
     }
     
+    /// Reset the content offset to the starting position of the scroll.
     func resetContentOffset() {
         self.articleElementTableView.setContentOffset(CGPoint.zero, animated: false)
     }
