@@ -51,8 +51,8 @@ extension MainArticleCoordinator: ArticleListCoordinatorDelegate {
     internal func showFavourites() {
         guard let rootViewController = self.rootViewController else { return }
         let favoriteArticleListCoordinator = FavoriteListCoordinator(with: rootViewController)
-        favoriteArticleListCoordinator.coordinatorDidFinish = { coordinator in
-            self.removeChildCoordinator(coordinator: coordinator)
+        favoriteArticleListCoordinator.coordinatorDidFinish = { [weak self] coordinator in
+            self?.removeChildCoordinator(coordinator: coordinator)
         }
         
         self.addChildCoordinator(coordinator: favoriteArticleListCoordinator)
