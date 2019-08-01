@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteListCoordinator: Coordinator {
+final class FavoriteListCoordinator: Coordinator {
     
     var coordinatorDidFinish: ((Coordinator) -> Void)?
     

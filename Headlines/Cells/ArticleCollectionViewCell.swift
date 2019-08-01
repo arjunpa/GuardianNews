@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleCollectionViewCell: UICollectionViewCell {
+final class ArticleCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var articleElementTableView: UITableView! {
         didSet {

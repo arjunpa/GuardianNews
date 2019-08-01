@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class FavouritesViewController: UIViewController {
+final class FavouritesViewController: UIViewController {
     
     private static let nibName = "FavouritesViewController"
     

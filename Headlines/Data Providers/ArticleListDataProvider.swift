@@ -47,14 +47,14 @@ final class ArticleListDataProvider: ArticleListDataProviderInterface  {
     }
     
     func fetchArticles(completion: @escaping (Result<[Article], Error>) -> Void) {
-        self.articleClient.fetchArticles { result in
+        self.articleClient.fetchArticles { [weak self] result in
             switch result {
             case .success(let articles):
                 
-                self.updateLocal(with: articles)
-                completion(.success(self.localDataManager.read() ?? articles))
+                self?.updateLocal(with: articles)
+                completion(.success(self?.localDataManager.read() ?? articles))
             case .failure(let error):
-                if let articles = self.localDataManager.read() {
+                if let articles = self?.localDataManager.read() {
                     completion(.success(articles))
                 }
                 completion(.failure(error))

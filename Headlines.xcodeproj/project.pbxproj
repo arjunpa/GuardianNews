@@ -12,7 +12,6 @@
 		AFC312831EC1E45A00105E93 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC312821EC1E45A00105E93 /* ArticleViewController.swift */; };
 		AFC312881EC1E45A00105E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC312871EC1E45A00105E93 /* Assets.xcassets */; };
 		AFC3128B1EC1E45A00105E93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC312891EC1E45A00105E93 /* LaunchScreen.storyboard */; };
-		AFC312931EC1E4AF00105E93 /* ArticleViewController_old.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC312921EC1E4AF00105E93 /* ArticleViewController_old.xib */; };
 		AFC312951EC1E4B300105E93 /* FavouritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */; };
 		AFC312971EC1E80800105E93 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC312961EC1E80800105E93 /* Article.swift */; };
 		AFC312991EC1FE4A00105E93 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */; };
@@ -73,7 +72,6 @@
 		AFC312871EC1E45A00105E93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFC3128A1EC1E45A00105E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFC3128C1EC1E45A00105E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFC312921EC1E4AF00105E93 /* ArticleViewController_old.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleViewController_old.xib; sourceTree = "<group>"; };
 		AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouritesViewController.xib; sourceTree = "<group>"; };
 		AFC312961EC1E80800105E93 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 			children = (
 				AFC312821EC1E45A00105E93 /* ArticleViewController.swift */,
 				C26BE73E22C71662005FD893 /* ArticleViewController.xib */,
-				AFC312921EC1E4AF00105E93 /* ArticleViewController_old.xib */,
 				AFC312981EC1FE4A00105E93 /* FavouritesViewController.swift */,
 				AFC312941EC1E4B300105E93 /* FavouritesViewController.xib */,
 			);
@@ -415,7 +412,6 @@
 				AFC3128B1EC1E45A00105E93 /* LaunchScreen.storyboard in Resources */,
 				C26E492222C7CF1100597048 /* ArticleFooterView.xib in Resources */,
 				C26BE73F22C71662005FD893 /* ArticleViewController.xib in Resources */,
-				AFC312931EC1E4AF00105E93 /* ArticleViewController_old.xib in Resources */,
 				C26BE75922C73B07005FD893 /* ArticleElementTextCell.xib in Resources */,
 				AFC312881EC1E45A00105E93 /* Assets.xcassets in Resources */,
 			);

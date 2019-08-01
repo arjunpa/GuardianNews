@@ -26,7 +26,7 @@ protocol FavoriteArticleListCoordinatorDelegate: class {
     func didFinish()
 }
 
-class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
+final class FavouriteArticleListViewModel: FavouriteArticleListViewModelInterface {
     
     private let dataProvider: FavouriteArticleListDataProviderInterface
     private lazy var favouriteArticleViewModels: [FavouriteArticleViewModel] = []
