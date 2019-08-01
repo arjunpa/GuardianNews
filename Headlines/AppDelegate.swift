@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Headlines
 //
-//  Created by Joshua Garnham on 09/05/2017.
-//  Copyright © 2017 Example. All rights reserved.
+//  Created by Arjun P A on 23/06/2019.
+//  Copyright © 2018 Example. All rights reserved.
 //
 
 import UIKit

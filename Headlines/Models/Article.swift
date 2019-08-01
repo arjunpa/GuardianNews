@@ -2,7 +2,7 @@
 //  Article.swift
 //  Headlines
 //
-//  Created by Joshua Garnham on 09/05/2017.
+//  Created by Arjun P A on 26/06/2019.
 //  Copyright © 2017 Example. All rights reserved.
 //
 
